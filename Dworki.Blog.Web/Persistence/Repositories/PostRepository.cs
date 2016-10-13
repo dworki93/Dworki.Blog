@@ -2,6 +2,8 @@
 using Dworki.Blog.Web.Core.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 
 namespace Dworki.Blog.Web.Persistence.Repositories
 {
@@ -20,6 +22,21 @@ namespace Dworki.Blog.Web.Persistence.Repositories
         {
             //return _context.Posts.In
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Post> GetPostsWithoutContents()
+        {
+            return ApplicationDbContext.Posts
+                .Select(p => new Post()
+                {
+                    Id = p.Id,
+                    Author = p.Author,
+                    DateTime = p.DateTime,
+                    Title = p.Title,
+                    Visibility = p.Visibility
+                })
+                .Include(p => p.Author)
+                .ToList();
         }
     }
 }

@@ -6,5 +6,7 @@ namespace Dworki.Blog.Web.Core.Repositories
     public interface IPostRepository : IRepository<Post>
     {
         IEnumerable<Post> GetPostsWithTags(int pageIndex, int pageSize);
+
+        IEnumerable<Post> GetPostsWithoutContents();
     }
 }

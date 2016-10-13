@@ -77,6 +77,14 @@
       <HintPath>..\packages\Ninject.Web.WebApi.3.2.4.0\lib\net45-full\Ninject.Web.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -207,6 +215,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\ControlPanel\Controllers\ManageController.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Models\Order.cs" />
     <Compile Include="Core\Models\Page.cs" />
     <Compile Include="Core\Models\Post.cs" />
     <Compile Include="Core\Models\PostTag.cs" />
@@ -222,6 +231,8 @@
     <Compile Include="Core\ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="Core\ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="Core\ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="Core\ViewModels\PostFormViewModel.cs" />
+    <Compile Include="Core\ViewModels\PostsListViewModel.cs" />
     <Compile Include="Persistence\Migrations\201610112048309_InitialModel.cs" />
     <Compile Include="Persistence\Migrations\201610112048309_InitialModel.Designer.cs">
       <DependentUpon>201610112048309_InitialModel.cs</DependentUpon>
@@ -252,6 +263,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -271,6 +283,8 @@
     <Content Include="Areas\ControlPanel\Views\_ViewStart.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Posts\Index.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\Shared\_EmptyLayout.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\Posts\Create.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -301,24 +315,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Areas\ControlPanel\Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Areas\ControlPanel\Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Account\ForgotPassword.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Account\Login.cshtml" />
-    <Content Include="Areas\ControlPanel\Views\Account\Register.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Account\ResetPassword.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Areas\ControlPanel\Views\Account\SendCode.cshtml" />
-    <Content Include="Areas\ControlPanel\Views\Account\VerifyCode.cshtml" />
-    <Content Include="Areas\ControlPanel\Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Manage\ChangePassword.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Manage\Index.cshtml" />
-    <Content Include="Areas\ControlPanel\Views\Manage\ManageLogins.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Manage\SetPassword.cshtml" />
-    <Content Include="Areas\ControlPanel\Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Shared\Lockout.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>

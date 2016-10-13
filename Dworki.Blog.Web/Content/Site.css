@@ -22,3 +22,15 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.posts .actions {
+    display: none;
+}
+
+.posts tr:hover .actions {
+    display: block;
+}
+
+.posts-search .form-inline {
+    padding-top: 25px;
+}

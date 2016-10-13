@@ -26,6 +26,25 @@ namespace Dworki.Blog.Web.Persistence.Repositories
             return _context.Set<TEntity>().ToList();
         }
 
+        public IQueryable<TEntity> GetAll(
+            Expression<Func<TEntity, bool>> filter = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+            params Expression<Func<TEntity, object>>[] includes)
+        {
+            IQueryable<TEntity> query = _context.Set<TEntity>();
+
+            foreach (var include in includes)
+                query = query.Include(include);
+
+            if (filter != null)
+                query = query.Where(filter);
+
+            if (orderBy != null)
+                query = orderBy(query);
+
+            return query;
+        }
+
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
             return _context.Set<TEntity>().Where(predicate);
